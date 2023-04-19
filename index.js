@@ -39,6 +39,8 @@ app.use((req, res) => {
 //CREATING THE BACKEND SERVER
 app.listen(process.env.PORT, () => {
 	console.log(
-		`Backend server is successfully running at http://localhost:${process.env.PORT}`
+		`Backend server is successfully running at http://localhost:${
+			process.env.PORT || 6010
+		}`
 	);
 });
