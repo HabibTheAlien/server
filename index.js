@@ -5,6 +5,7 @@ const cors = require("cors");
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
 const mongoose = require("mongoose");
+const PORT= process.env.PORT || 6010
 
 dotenv.config();
 app.use(express.json());
@@ -39,8 +40,8 @@ app.use((req, res) => {
 //CREATING THE BACKEND SERVER
 app.listen(process.env.PORT, () => {
 	console.log(
-		`Backend server is successfully running at http://localhost:${
-			process.env.PORT || 6010
+		`Backend server is successfully running at${
+			PORT
 		}`
 	);
 });
