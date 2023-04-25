@@ -5,12 +5,14 @@ const cors = require("cors");
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
 const mongoose = require("mongoose");
-const PORT= process.env.PORT || 6010
 
 dotenv.config();
 app.use(express.json());
 app.use(cors());
 
+const PORT = process.env.PORT || 6010;
+
+console.log(PORT);
 //MONGODB CONNECTION
 mongoose
 	.connect(process.env.MONGO_URL, {
@@ -29,7 +31,9 @@ app.use("/api/users", userRoute);
 
 //HOME PAGE RESPONSE
 app.get("/", (req, res) => {
-	res.send("<div><h1 >Hello world</h1><h2>I am Node Mould</h2></div>");
+	res.send(
+		"<div><h1 >Hello world</h1><h2>Hello I am STAT 16th app server </h2></div>"
+	);
 });
 
 //CLIENT SIDE ERROR
@@ -38,10 +42,6 @@ app.use((req, res) => {
 });
 
 //CREATING THE BACKEND SERVER
-app.listen(process.env.PORT, () => {
-	console.log(
-		`Backend server is successfully running at${
-			PORT
-		}`
-	);
+app.listen(PORT, () => {
+	console.log(`Backend server is successfully running at${PORT}`);
 });
